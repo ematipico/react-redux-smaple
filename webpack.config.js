@@ -1,7 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 module.exports = {
-  cache: true,
+  cache: false,
   devtool: 'eval-source-map',
   entry: [
     'babel-polyfill',
@@ -14,7 +14,7 @@ module.exports = {
   target: 'web',
   output: {
     path: path.join(__dirname, '/wwwroot/js'),
-    publicPath: '/js/',
+    publicPath: '.',
     filename: 'bundle.js',
     pathinfo: true
   },

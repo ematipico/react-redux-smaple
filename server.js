@@ -11,7 +11,7 @@ module.exports = {
   },
   middleware: [
     webpackDevMiddleware(bundler, {
-      publicPath: '/src/',
+      publicPath: bundler.publicPath,
       stats: {
         colors: true,
         usedExports: true,
