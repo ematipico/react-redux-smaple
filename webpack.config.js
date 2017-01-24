@@ -13,8 +13,8 @@ module.exports = {
   watch: true,
   target: 'web',
   output: {
-    path: path.join(__dirname, '/wwwroot/js'),
-    publicPath: '.',
+    path: path.join(__dirname, './'),
+    publicPath: '/',
     filename: 'bundle.js',
     pathinfo: true
   },
@@ -34,7 +34,7 @@ module.exports = {
       'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
     }),
     new webpack.LoaderOptionsPlugin({
-     debug: true
+      debug: true
     })
   ],
   module: {
@@ -42,7 +42,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.join(__dirname, 'src'),
+        include: path.join(__dirname, '/src'),
         loader: 'babel-loader',
         options: {
           cacheDirectory: true
