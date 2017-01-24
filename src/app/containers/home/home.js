@@ -23,12 +23,14 @@ class Home extends Component {
       return null
     }
     return (
-      <div className='row'>
+      <div>
         <h2>Home Page - browse the products</h2>
 
-        {products.map((product, key) => {
-          return <ProductCard {...product} />
-        })}
+        <div className='container'>
+          {products.map((product, key) => {
+            return <ProductCard {...product} />
+          })}
+        </div>
       </div>
     )
   }
