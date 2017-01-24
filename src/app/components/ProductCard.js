@@ -1,6 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import style from './ProductCard.css'
 
 export default class ProductCard extends Component {
+
+  static propTypes () {
+    return {
+      kind: PropTypes.object,
+      data: PropTypes.object
+    }
+  }
 
   constructor (props) {
     super(props)
@@ -9,7 +17,7 @@ export default class ProductCard extends Component {
 
   _onClick (evt) {
     evt.preventDefault()
-    console.log('clicked');
+    console.log('clicked')
   }
 
   render () {
@@ -18,9 +26,9 @@ export default class ProductCard extends Component {
     } } = this.props
 
     return (
-      <div className='row product'>
+      <div className={style.product}>
         <div className='column column-20'>
-          {title}
+          {title} - {kind}
         </div>
         <div className='column column-60'>
           {selftext}

@@ -47,6 +47,15 @@ module.exports = {
         options: {
           cacheDirectory: true
         }
+      },
+      {
+        test: /\.css.js$/,
+        use: [
+          'style-loader',
+          'css-loader?importLoaders=1',
+          'postcss-loader?parser=postcss-js',
+          'babel-loader'
+        ]
       }
     ]
   },
