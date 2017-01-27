@@ -23,6 +23,7 @@
   "homepage": "https://github.com/ematipico/react-redux-smaple#readme",
   "dependencies": {
     "babel-polyfill": "^6.20.0",
+    "classnames": "^2.2.5",
     "exports-loader": "^0.6.3",
     "imports-loader": "^0.7.0",
     "node-sass": "^4.3.0",

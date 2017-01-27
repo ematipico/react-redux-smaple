@@ -16,7 +16,8 @@ export default class ProductCard extends Component {
 
   _onClick (evt) {
     evt.preventDefault()
-    console.log('clicked')
+    const { onClick } = this.props
+    onClick && onClick(this.props.data)
   }
 
   render () {
@@ -27,13 +28,15 @@ export default class ProductCard extends Component {
     return (
       <div className='product'>
         <div className='column column-20'>
-          {title} - {kind}
+          <h3 className='title'>
+            {title} - {kind}
+          </h3>
         </div>
-        <div className='column column-60'>
+        <div className='column column-60 description'>
           {selftext}
         </div>
-        <div className='column column-20'>
-          <button onClick={this.onClick}>Add to cart</button>
+        <div className='column column-20 clearfix'>
+          <button onClick={this.onClick} className='float-right'>Add to cart</button>
         </div>
       </div>
     )

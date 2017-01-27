@@ -3,4 +3,13 @@
   padding: 1em;
   margin: 1em;
   background-color: #ccc;
+  button {
+    text-align: right;
+  }
+  .title {
+    font-weight: bold;
+  }
+  .description {
+    margin-bottom: 0.5em;
+  }
 }

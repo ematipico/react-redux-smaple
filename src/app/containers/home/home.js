@@ -1,6 +1,7 @@
 import React, { Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import { getProducts } from './homeActions'
+import { addToCart } from 'app/containers/cart/cartActions'
 import ProductCard from 'app/components/ProductCard'
 
 class Home extends Component {
@@ -18,7 +19,7 @@ class Home extends Component {
   }
 
   render () {
-    const { products } = this.props
+    const { products, dispatchAddToCart } = this.props
     if (Object.keys(products).length === 0) {
       return null
     }
@@ -28,7 +29,7 @@ class Home extends Component {
 
         <div className='container'>
           {products.map((product, key) => {
-            return <ProductCard {...product} />
+            return <ProductCard key={key} {...product} onClick={dispatchAddToCart} />
           })}
         </div>
       </div>
@@ -37,7 +38,6 @@ class Home extends Component {
 }
 
 function mapStateToProps (state, ownPros) {
-  console.log(state);
   return {
     products: state.products
   }
@@ -47,6 +47,9 @@ function mapDispatchToProps (dispatch) {
   return {
     dispatchGetProducts () {
       dispatch(getProducts())
+    },
+    dispatchAddToCart (item) {
+      dispatch(addToCart(item))
     }
   }
 }

@@ -1,0 +1,24 @@
+.notification {
+  width: 30vw;
+  min-height: 100px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 0 1em 1em 0;
+  opacity: 0;
+  display: none;
+  &.show {
+    display: block;
+  }
+
+
+  &.warning {
+    background-color: rgba(#d1c52b, 0.85);
+  }
+  &.error {
+    background-color: #c3435e;
+  }
+  &.positive {
+    background-color: #24cf35;
+  }
+}

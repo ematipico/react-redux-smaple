@@ -5,6 +5,7 @@ import BrowserRouter from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
 import Home from 'app/containers/home/home'
 import Product from 'app/containers/product/product'
+import Notification from 'app/components/Notification'
 
 if (process.env.NODE_ENV === 'development') {
   if (module.hot) {
@@ -24,6 +25,7 @@ export default class App extends React.Component {
 
             <Match exactly pattern='/' component={Home} />
             <Match pattern='/product/:productId' component={Product} />
+            <Notification />
           </div>
         </BrowserRouter>
       </Provider>
