@@ -48,15 +48,8 @@ module.exports = {
           cacheDirectory: true
         }
       },
-      {
-        test: /\.css.js$/,
-        use: [
-          'style-loader',
-          'css-loader?importLoaders=1',
-          'postcss-loader?parser=postcss-js',
-          'babel-loader'
-        ]
-      }
+      { test: /(\.css|\.scss)$/, include: path.join(__dirname, 'src'), loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   },
   resolve: {

@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import style from './ProductCard.css'
 
 export default class ProductCard extends Component {
 
@@ -26,7 +25,7 @@ export default class ProductCard extends Component {
     } } = this.props
 
     return (
-      <div className={style.product}>
+      <div className='product'>
         <div className='column column-20'>
           {title} - {kind}
         </div>
