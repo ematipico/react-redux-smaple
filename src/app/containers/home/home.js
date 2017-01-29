@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getProducts } from './homeActions'
 import { addToCart } from 'app/containers/cart/cartActions'
 import ProductCard from 'app/components/ProductCard'
+import { sendMessage } from 'app/components/notificationActions'
 
 class Home extends Component {
 
@@ -25,7 +26,7 @@ class Home extends Component {
     }
     return (
       <div>
-        <h2>Home Page - browse the products</h2>
+        <h1>Home Page - browse the products</h1>
 
         <div className='container'>
           {products.map((product, key) => {
@@ -50,10 +51,9 @@ function mapDispatchToProps (dispatch) {
     },
     dispatchAddToCart (item) {
       dispatch(addToCart(item))
+      dispatch(sendMessage(`The item with ID ${item.id} has been added to the cart`))
     }
   }
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

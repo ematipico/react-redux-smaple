@@ -1,0 +1,26 @@
+.cart {
+
+  .product-summary {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin: .6em 0;
+    background-color: #ccc;
+    .title {
+
+    }
+    .price {
+
+    }
+  }
+
+  .totalPrice {
+    font-size: 25px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 30px;
+    height: 2em;
+    margin: 1em 0;
+  }
+}

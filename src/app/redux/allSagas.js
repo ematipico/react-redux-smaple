@@ -1,8 +1,9 @@
 import { watchGetProducts } from 'app/containers/home/productsSaga'
-import { fork } from 'redux-saga/effects'
+import { watchGetMessage } from 'app/components/notificationSaga'
 
 export default function* root () {
   yield [
-    watchGetProducts()
+    watchGetProducts(),
+    watchGetMessage()
   ]
 }
