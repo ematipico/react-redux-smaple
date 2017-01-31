@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectProductsInCart } from 'app/containers/cart/cartReducer'
 import _isEmpty from 'lodash/isEmpty'
-
+import { Field, reduxForm } from 'redux-form'
 
 class Checkout extends Component {
 
@@ -20,7 +20,7 @@ class Checkout extends Component {
     } else {
       return (
         <div className='checkout'>
-          
+
         </div>
       )
     }
