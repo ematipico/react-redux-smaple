@@ -7,8 +7,7 @@ import { Field, reduxForm } from 'redux-form'
 class Checkout extends Component {
 
   render () {
-    const { products } = this.props
-
+    const { inititialValues: { products } } = this.props
     if (_isEmpty(products)) {
       return (
         <div>
@@ -20,7 +19,22 @@ class Checkout extends Component {
     } else {
       return (
         <div className='checkout'>
+          <form>
+            <fieldset>
+              <label htmlFor='name'>Name</label>
+              <Field name='name' component='input' type='text' />
 
+              <label htmlFor='surname'>Surnma</label>
+              <Field name='surname' component='input' type='text' />
+            </fieldset>
+            <fieldset>
+              <label htmlFor='gender'>Gender</label>
+              <Field name='gender' component='input' type='radio' value='male' id='male' />
+              <label htmlFor='male' className='inline'>Male</label>
+              <Field name='gender' component='input' type='radio' value='female' id='female' />
+              <label htmlFor='female' className='inline'>Female</label>
+            </fieldset>
+          </form>
         </div>
       )
     }
@@ -30,8 +44,12 @@ class Checkout extends Component {
 function mapStateToProps (state) {
   const products = selectProductsInCart(state)
   return {
-    products
+    inititialValues: {
+      products
+    }
   }
 }
 
-export default connect(mapStateToProps)(Checkout)
+export default connect(mapStateToProps)(reduxForm({
+  form: 'checkout' // a unique name for this form
+})(Checkout))
