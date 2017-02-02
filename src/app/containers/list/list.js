@@ -1,11 +1,11 @@
 import React, { Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
-import { getProducts } from './homeActions'
+import { getProducts } from 'app/containers/list/listActions'
 import { addToCart } from 'app/containers/cart/cartActions'
 import ProductCard from 'app/components/ProductCard'
 import { sendMessage } from 'app/components/notificationActions'
 
-class Home extends Component {
+class List extends Component {
 
   static propTypes () {
     return {
@@ -25,8 +25,8 @@ class Home extends Component {
       return null
     }
     return (
-      <div>
-        <h1>Home Page - browse the products</h1>
+      <div className='list'>
+        <h1>Browse the products</h1>
 
         <div className='container'>
           {products.map((product, key) => {
@@ -56,4 +56,4 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(List)

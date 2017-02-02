@@ -1,9 +1,12 @@
+/* eslint-disable */
+
 import React from 'react'
 import { Provider } from 'react-redux'
 import store from 'app/redux/store'
-import BrowserRouter from 'react-router/BrowserRouter'
-import Match from 'react-router/Match'
-import Home from 'app/containers/home/home'
+import BrowserRouter from 'react-router-dom/BrowserRouter'
+import Route from 'react-router-dom/Route'
+import Link from 'react-router-dom/Link'
+import List from 'app/containers/list/list'
 import Checkout from 'app/containers/checkout/checkout'
 import Product from 'app/containers/product/product'
 import Notification from 'app/components/Notification'
@@ -17,17 +20,71 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export default class App extends React.Component {
+
+  constructor (props) {
+    super(props)
+    this.routes = [
+      {
+        path: '/cart',
+        render: () => {
+          System.import('app/containers/cart/cart')
+            .then(Cart => {
+              return Cart;
+
+            })
+        },
+      },
+      {
+        path: '/checkout',
+        render: ({callback}) => {
+          return System.import('app/containers/checkout/checkout')
+          .then(Checkout => {
+            callback(null, Checkout)
+          })
+        },
+      },
+      {
+        path: '/list',
+        render: () => {
+          return new Promise(function(resolve) {
+            System.import('app/containers/list/list')
+              .then(List => {
+                resolve(List)
+              })
+          })
+        }
+      },
+      {
+        path: '/cart',
+        render: () => {
+          System.import('app/containers/cart/cart')
+            .then(Cart => {
+              callback(null, Cart)
+
+          })
+        }
+      }
+    ]
+  }
+
   render () {
     return (
       <Provider store={store}>
         <BrowserRouter>
           <div>
             <NavBar />
+            <Link to='/list' >Start browsing</Link>
             <div className='container'>
-              <Match exactly pattern='/' component={Home} />
-              <Match pattern='/product/:productId' component={Product} />
-              <Match pattern='/cart' component={Cart} />
-              <Match pattern='/checkout' component={Checkout} />
+              {this.routes.map((route, key) => {
+                console.log(route);
+                return (
+                  <Route key={key} {...route} />
+                )
+              })}
+              {/* <Route path='/list' component={List} /> */}
+              {/* <Route path='/product/:productId' component={Product} /> */}
+              {/* <Route path='/cart' component={Cart} /> */}
+              {/* <Route path='/checkout' component={Checkout} /> */}
             </div>
             <Notification />
           </div>

@@ -1,5 +1,5 @@
 import { take, put, fork } from 'redux-saga/effects'
-import { GET_PRODUCTS, storeProducts } from 'app/containers/home/homeActions'
+import { GET_PRODUCTS, storeProducts } from 'app/containers/list/listActions'
 import { applyPricesToData } from 'app/utils'
 
 const forever = true

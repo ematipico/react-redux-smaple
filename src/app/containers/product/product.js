@@ -26,7 +26,7 @@ class Product extends Component {
 }
 
 function mapStateToProps (state, ownProps) {
-  const { productId } = ownProps.params
+  const { productId } = ownProps.match.params
   const product = selectProduct(state, productId)
   return {
     product

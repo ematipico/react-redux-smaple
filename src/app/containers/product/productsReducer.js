@@ -1,4 +1,4 @@
-import { STORE_PRODUCTS } from 'app/containers/home/homeActions'
+import { STORE_PRODUCTS } from 'app/containers/list/listActions'
 
 export function selectProduct (state, id) {
   let theProduct = null

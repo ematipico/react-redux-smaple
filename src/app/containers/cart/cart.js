@@ -11,8 +11,7 @@ class Cart extends Component {
 
   _goToCheckout (evt) {
     evt.preventDefault()
-    const { router } = this.context
-    router.transitionTo('/checkout')
+    this.props.push('/checkout')
   }
 
   render () {
@@ -47,10 +46,6 @@ function mapStateToProps (state) {
   return {
     products
   }
-}
-
-Cart.contextTypes = {
-  router: PropTypes.object
 }
 
 export default connect(mapStateToProps)(Cart)
