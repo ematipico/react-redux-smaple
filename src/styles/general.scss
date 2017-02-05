@@ -31,3 +31,9 @@ mark {
 .inline {
   display: inline;
 }
+
+button {
+  &.wide {
+    width: 100%;
+  }
+}

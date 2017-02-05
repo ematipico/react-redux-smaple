@@ -75,16 +75,10 @@ export default class App extends React.Component {
             <NavBar />
             <Link to='/list' >Start browsing</Link>
             <div className='container'>
-              {this.routes.map((route, key) => {
-                console.log(route);
-                return (
-                  <Route key={key} {...route} />
-                )
-              })}
-              {/* <Route path='/list' component={List} /> */}
-              {/* <Route path='/product/:productId' component={Product} /> */}
-              {/* <Route path='/cart' component={Cart} /> */}
-              {/* <Route path='/checkout' component={Checkout} /> */}
+              <Route path='/list' component={List} />
+              <Route path='/product/:productId' component={Product} />
+              <Route path='/cart' component={Cart} />
+              <Route path='/checkout' component={Checkout} />
             </div>
             <Notification />
           </div>
