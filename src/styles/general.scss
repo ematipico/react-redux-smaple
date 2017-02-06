@@ -37,3 +37,12 @@ button {
     width: 100%;
   }
 }
+
+.label {
+  padding: 2em;
+  &.error {
+    background-color: #de3f3f;
+    color: #fff;
+    border-radius: 0.6em;
+  }
+}
