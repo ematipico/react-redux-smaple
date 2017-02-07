@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { selectProductsInCart } from 'app/containers/cart/cartReducer'
 import _isEmpty from 'lodash/isEmpty'
 import Form from './form'
-import { checkoutError, fulfilCheckout } from './checkoutActions'
+import { checkoutError, fulfilCheckout, buyProducts } from './checkoutActions'
 import { selectCheckoutError } from './checkoutReducer'
 
 class Checkout extends Component {
@@ -14,13 +14,18 @@ class Checkout extends Component {
   }
 
   _handleSubmit (values, middleware, formStatus) {
+    const { dispatchCheckoutError, dispatchBuyProducts } = this.props
     if (_isEmpty(values)) {
-      const { dispatchCheckoutError } = this.props
       dispatchCheckoutError('Fill the form correctly')
     } else {
       const {
         name, surname, gender, confirm
       } = values
+      if (confirm === 'I want to buy') {
+        dispatchBuyProducts({name, surname, gender, confirm})
+      } else {
+        dispatchCheckoutError('The confirmation phrase is not correct')
+      }
     }
   }
 
@@ -65,6 +70,9 @@ function mapDispatchToProps (dispatch) {
     },
     dispatchFulFilCheckout () {
       dispatch(fulfilCheckout())
+    },
+    dispatchBuyProducts () {
+      dispatch(buyProducts())
     }
   }
 }
