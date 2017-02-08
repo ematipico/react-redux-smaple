@@ -4,7 +4,7 @@ import { BUY_PRODUCTS, progress, stopProgress, successfulTransition } from './ch
 
 const forever = true
 
-export function* whatchBuyProducts () {
+export function * whatchBuyProducts () {
   while (forever) { // eslint-disable-line
     const action = yield take(BUY_PRODUCTS)
     yield fork(buyProduct, action)

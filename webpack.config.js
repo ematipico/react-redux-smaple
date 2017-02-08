@@ -51,6 +51,7 @@ module.exports = {
       {
         test: /\.js$/,
         include: path.join(__dirname, '/src'),
+        enforce: 'pre',
         loader: 'standard-loader'
       },
       { test: /(\.css|\.scss)$/, include: path.join(__dirname, 'src'), loaders: ['style-loader', 'css-loader', 'sass-loader'] },

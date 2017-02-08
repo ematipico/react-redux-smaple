@@ -1,4 +1,13 @@
 export type Action = {
   type?: string;
-  payload?: Object
+  payload?: any
+}
+
+export type GenericState = {
+  products: *,
+  cart: *,
+  notification: *,
+  checkout: *,
+  loader: *,
+  form: *
 }

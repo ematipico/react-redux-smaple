@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { selectProductsInCart } from 'app/containers/cart/cartReducer'
 import _isEmpty from 'lodash/isEmpty'
@@ -8,6 +8,17 @@ import { checkoutError, fulfilCheckout, buyProducts } from './checkoutActions'
 import { selectCheckoutError } from './checkoutReducer'
 
 class Checkout extends Component {
+
+  handleSubmit: (
+    values: {
+      name?: string;
+      surname?: string;
+      gender?: string,
+      confirm: string
+    },
+    middleware: () => void,
+    formStatus: Object
+  ) => void
 
   constructor (props) {
     super(props)

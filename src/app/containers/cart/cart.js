@@ -1,8 +1,15 @@
-import React, { Component, PropTypes} from 'react'
+// @flow
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { selectProductsInCart } from './cartReducer'
 
-class Cart extends Component {
+type Props = {
+  products: Object;
+  push: () => void;
+}
+
+class Cart extends Component<void, Props, void> {
+  goToCheckout: (evt: Object) => void
 
   constructor (props) {
     super(props)

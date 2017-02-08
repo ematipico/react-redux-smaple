@@ -1,10 +1,12 @@
+// @flow
 import { CHECKOUT_ERROR, CHECKOUT_FULFIL } from './checkoutActions'
+import { GenericState, Action } from 'app/types'
 
-export function selectCheckoutError (state) {
+export function selectCheckoutError (state: GenericState) {
   return state.checkout.error
 }
 
-function checkoutReducer (state = {}, action) {
+function checkoutReducer (state: Object = {}, action: Action) {
   const { type, payload } = action
   switch (type) {
     case CHECKOUT_ERROR: {

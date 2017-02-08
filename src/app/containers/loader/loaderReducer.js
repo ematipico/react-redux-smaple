@@ -1,7 +1,8 @@
+// @flow
 import { NO_PROGRESS, PROGRESS } from './loaderActions'
-import { Action } from 'app/types'
+import { Action, GenericState } from 'app/types'
 
-export function selectLoaderState (state) {
+export function selectLoaderState (state: GenericState) {
   return state.loader.showLoader
 }
 

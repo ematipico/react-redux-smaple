@@ -4,14 +4,14 @@ import { SEND_MESSAGE, deliverMessage, removeMessage } from 'app/components/noti
 
 const forever = true
 
-export function* watchGetMessage () {
-  while (forever) {
+export function * watchGetMessage () {
+  while (forever) { // eslint-disable-line
     const action = yield take(SEND_MESSAGE)
     yield fork(getMessage, action)
   }
 }
 
-export function* getMessage (action) {
+export function * getMessage (action) {
   yield put(deliverMessage(action.payload))
   yield delay(3000)
   yield put(removeMessage())

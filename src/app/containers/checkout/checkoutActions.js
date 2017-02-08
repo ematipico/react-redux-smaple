@@ -1,3 +1,4 @@
+// @flow
 export const CHECKOUT_ERROR = 'CHECKOUT_ERROR'
 
 export const CHECKOUT_FULFIL = 'CHECKOUT_FULFIL'
@@ -6,8 +7,7 @@ export const BUY_PRODUCTS = 'BUY_PRODUCTS'
 
 export const SUCCESSFUL_TRANSITION = 'SUCCESSFUL_TRANSITION'
 
-
-export function checkoutError (err) {
+export function checkoutError (err: string) {
   return {
     type: CHECKOUT_ERROR,
     payload: {
@@ -25,7 +25,7 @@ export function fulfilCheckout () {
   }
 }
 
-export function buyProducts (formInformation) {
+export function buyProducts (formInformation: Object) {
   return {
     type: BUY_PRODUCTS,
     payload: {

@@ -1,10 +1,10 @@
+// @flow
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import allReducers from './allReducers'
 import allSagas from './allSagas'
 import createSagaMiddleware from 'redux-saga'
 
 const sagaMiddleware = createSagaMiddleware()
-
 const store = createStore(
   combineReducers(allReducers),
   compose(

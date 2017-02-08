@@ -80,6 +80,10 @@
     ],
     "ignore": [
       "app.js"
+    ],
+    "globals": [
+      "Generator",
+      "fetch"
     ]
   }
 }

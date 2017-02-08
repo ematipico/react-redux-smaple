@@ -1,14 +1,18 @@
+// @flow
 import { ADD_TO_CART, DELETE_FROM_CART } from './cartActions'
+import { Action, GenericState } from 'app/types'
 
-export function selectProductsInCart (state) {
-  return state['cart']
+type State = Object
+
+export function selectProductsInCart (state: GenericState) {
+  return state.cart
 }
 
-export function selectProductFromCart (state, itemId) {
-  return state['cart'][itemId]
+export function selectProductFromCart (state: GenericState, itemId: number) {
+  return state.cart[itemId]
 }
 
-export default function cartReducer (state = {}, action) {
+export default function cartReducer (state: State = {}, action: Action) {
   const { type, payload: {
     item
   } = {} } = action

@@ -1,27 +1,36 @@
+// @flow
 import React, { Component, PropTypes } from 'react'
 
-export default class ProductCard extends Component {
+type Props = {
+  kind: string;
+  data: Object;
+  onClick: () => void;
+}
 
-  static propTypes () {
-    return {
-      kind: PropTypes.object,
-      data: PropTypes.object
-    }
-  }
+export default class ProductCard extends Component<void, Props, void> {
 
-  constructor (props) {
+  onClick: (() => void) => void;
+  onClickDetail: (id: number, evt: Object) => void;
+
+  constructor (props: Props) {
     super(props)
     this.onClick = this._onClick.bind(this)
     this.onClickDetail = this._onClickDetail.bind(this)
   }
 
-  _onClick (evt) {
+  static contextTypes () {
+    return {
+      context: PropTypes.object
+    }
+  }
+
+  _onClick (evt: Object) {
     evt.preventDefault()
     const { onClick } = this.props
     onClick && onClick(this.props.data)
   }
 
-  _onClickDetail (id, evt) {
+  _onClickDetail (id: number, evt: Object) {
     evt.preventDefault()
     const { router } = this.context
     router.transitionTo('/product/' + id)
@@ -50,8 +59,4 @@ export default class ProductCard extends Component {
       </div>
     )
   }
-}
-
-ProductCard.contextTypes = {
-  router: PropTypes.object
 }

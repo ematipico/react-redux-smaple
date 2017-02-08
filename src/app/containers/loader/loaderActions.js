@@ -1,3 +1,4 @@
+// @flow
 export const PROGRESS = 'PROGRESS'
 
 export const NO_PROGRESS = 'NO_PROGRESS'
@@ -7,7 +8,6 @@ export function progress () {
     type: PROGRESS
   }
 }
-
 
 export function stopProgress () {
   return {

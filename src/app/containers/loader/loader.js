@@ -1,8 +1,13 @@
+// @flow
 import React, { Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import { selectLoaderState } from './loaderReducer'
 
-class Loader extends Component {
+type Props = {
+  showLoader: boolean;
+}
+
+class Loader extends Component<void, Props, void> {
 
   render () {
     const { showLoader } = this.props
@@ -50,7 +55,7 @@ class Loader extends Component {
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps (state: Object) {
   return {
     showLoader: selectLoaderState(state)
   }

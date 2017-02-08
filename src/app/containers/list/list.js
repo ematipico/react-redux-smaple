@@ -1,18 +1,19 @@
-import React, { Component, PropTypes} from 'react'
+// @flow
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProducts } from 'app/containers/list/listActions'
 import { addToCart } from 'app/containers/cart/cartActions'
 import ProductCard from 'app/components/ProductCard'
 import { sendMessage } from 'app/components/notificationActions'
+import { GenericState } from 'app/types'
 
-class List extends Component {
+type Props = {
+  products: Array<Object>;
+  dispatchGetProducts: () => void;
+  dispatchAddToCart: () => void;
+}
 
-  static propTypes () {
-    return {
-      products: PropTypes.object,
-      dispatchGetProducts: PropTypes.func
-    }
-  }
+class List extends Component<void, Props, void> {
 
   componentDidMount () {
     const { dispatchGetProducts } = this.props
@@ -21,7 +22,7 @@ class List extends Component {
 
   render () {
     const { products, dispatchAddToCart } = this.props
-    if (Object.keys(products).length === 0) {
+    if (products && Object.keys(products).length === 0) {
       return null
     }
     return (
@@ -38,7 +39,7 @@ class List extends Component {
   }
 }
 
-function mapStateToProps (state, ownPros) {
+function mapStateToProps (state: GenericState, ownProps) {
   return {
     products: state.products
   }

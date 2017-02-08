@@ -1,9 +1,15 @@
+// @flow
 import React, { Component } from 'react'
 import Link from 'react-router-dom/Link'
 import { connect } from 'react-redux'
 import { selectProductsInCart } from 'app/containers/cart/cartReducer'
+import { GenericState } from 'app/types'
 
-class NavBar extends Component {
+type Props = {
+  numberOfItems?: number;
+}
+
+class NavBar extends Component<void, Props, void> {
   render () {
     const { numberOfItems } = this.props
     return (
@@ -20,7 +26,7 @@ class NavBar extends Component {
   }
 }
 
-function mapStateToProps (state, ownProps) {
+function mapStateToProps (state: GenericState, ownProps: Props) {
   const numberOfItems = Object.keys(selectProductsInCart(state)).length || 0
   return {
     numberOfItems

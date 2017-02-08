@@ -1,7 +1,13 @@
-import React, { Component, PropTypes } from 'react'
+// @flow
+import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-class Form extends Component {
+type Props = {
+  onSubmit: () => void,
+  handleSubmit: () => void
+}
+
+class Form extends Component<void, Props, void> {
 
   render () {
     const { onSubmit, handleSubmit } = this.props

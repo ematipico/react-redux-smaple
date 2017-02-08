@@ -22,52 +22,6 @@ if (process.env.NODE_ENV === 'development') {
 
 export default class App extends Component {
 
-  constructor (props) {
-    super(props)
-    this.routes = [
-      {
-        path: '/cart',
-        render: () => {
-          System.import('app/containers/cart/cart')
-            .then(Cart => {
-              return Cart;
-
-            })
-        },
-      },
-      {
-        path: '/checkout',
-        render: ({callback}) => {
-          return System.import('app/containers/checkout/checkout')
-          .then(Checkout => {
-            callback(null, Checkout)
-          })
-        },
-      },
-      {
-        path: '/list',
-        render: () => {
-          return new Promise(function(resolve) {
-            System.import('app/containers/list/list')
-              .then(List => {
-                resolve(List)
-              })
-          })
-        }
-      },
-      {
-        path: '/cart',
-        render: () => {
-          System.import('app/containers/cart/cart')
-            .then(Cart => {
-              callback(null, Cart)
-
-          })
-        }
-      }
-    ]
-  }
-
   render () {
     return (
       <Provider store={store}>
