@@ -85,8 +85,8 @@ function mapDispatchToProps (dispatch) {
     dispatchFulFilCheckout () {
       dispatch(fulfilCheckout())
     },
-    dispatchBuyProducts () {
-      dispatch(buyProducts())
+    dispatchBuyProducts (formInformation: Object) {
+      dispatch(buyProducts(formInformation))
     }
   }
 }

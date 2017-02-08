@@ -18,7 +18,6 @@ export function selectProduct (state: State, id: number) {
   return theProduct
 }
 
-
 export default function products (state: State = {}, action: Action) {
   switch (action.type) {
     case STORE_PRODUCTS: {

@@ -13,6 +13,7 @@ import Notification from 'app/components/Notification'
 import NavBar from 'app/components/NavBar'
 import Cart from 'app/containers/cart/cart'
 import Loader from 'app/containers/loader/loader'
+import ThankYou from 'app/containers/thank-you/thankYou'
 
 if (process.env.NODE_ENV === 'development') {
   if (module.hot) {
@@ -35,6 +36,7 @@ export default class App extends Component {
               <Route path='/product/:productId' component={Product} />
               <Route path='/cart' component={Cart} />
               <Route path='/checkout' component={Checkout} />
+              <Route path='/thank-you' component={ThankYou} />
             </div>
             <Notification />
           </div>

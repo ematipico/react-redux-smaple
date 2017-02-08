@@ -1,6 +1,7 @@
-import { take, put, fork } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
-import { BUY_PRODUCTS, progress, stopProgress, successfulTransition } from './checkoutActions'
+import { take, put, fork } from 'redux-saga/effects'
+import { BUY_PRODUCTS, successfulTransition } from './checkoutActions'
+import { progress, stopProgress } from 'app/containers/loader/loaderActions'
 
 const forever = true
 

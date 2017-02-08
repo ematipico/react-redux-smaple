@@ -1,5 +1,5 @@
 // @flow
-import { CHECKOUT_ERROR, CHECKOUT_FULFIL } from './checkoutActions'
+import { CHECKOUT_ERROR, CHECKOUT_FULFIL, SUCCESSFUL_TRANSITION } from './checkoutActions'
 import { GenericState, Action } from 'app/types'
 
 export function selectCheckoutError (state: GenericState) {
@@ -18,6 +18,9 @@ function checkoutReducer (state: Object = {}, action: Action) {
       return {
         ...payload
       }
+    }
+    case SUCCESSFUL_TRANSITION: {
+      return state
     }
     default:
       return state
