@@ -48,6 +48,11 @@ module.exports = {
           cacheDirectory: true
         }
       },
+      {
+        test: /\.js$/,
+        include: path.join(__dirname, '/src'),
+        loader: 'standard-loader'
+      },
       { test: /(\.css|\.scss)$/, include: path.join(__dirname, 'src'), loaders: ['style-loader', 'css-loader', 'sass-loader'] },
       { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]

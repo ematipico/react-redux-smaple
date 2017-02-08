@@ -2,21 +2,37 @@
   "env": {
     "test": {
       "presets": ["es2015", "react", "stage-0", "stage-1"],
-      "plugins": ["transform-object-assign"]
+      "plugins": [
+        "transform-object-assign",
+        "syntax-flow",
+        "tcomb",
+        "transform-flow-strip-types"
+      ]
     },
     "development": {
       "presets": [
         ["es2015", { "modules": false, "loose": true }],
         "react", "stage-0", "stage-1",
       ],
-      "plugins": ["transform-object-assign", "react-hot-loader/babel"]
+      "plugins": [
+        "transform-object-assign",
+        "react-hot-loader/babel",
+        "syntax-flow",
+        "tcomb",
+        "transform-flow-strip-types"
+      ]
     },
     "production": {
       "presets": [
         ["es2015", { "modules": false, "loose": true }],
         "react", "stage-0", "stage-1",
       ],
-      "plugins": ["transform-object-assign"]
+      "plugins": [
+        "transform-object-assign",
+        "syntax-flow",
+        "tcomb",
+        "transform-flow-strip-types"
+      ]
     }
   }
 

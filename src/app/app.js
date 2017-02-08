@@ -1,6 +1,6 @@
 /* eslint-disable */
-
-import React from 'react'
+// @flow
+import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import store from 'app/redux/store'
 import BrowserRouter from 'react-router-dom/BrowserRouter'
@@ -12,6 +12,7 @@ import Product from 'app/containers/product/product'
 import Notification from 'app/components/Notification'
 import NavBar from 'app/components/NavBar'
 import Cart from 'app/containers/cart/cart'
+import Loader from 'app/containers/loader/loader'
 
 if (process.env.NODE_ENV === 'development') {
   if (module.hot) {
@@ -19,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
-export default class App extends React.Component {
+export default class App extends Component {
 
   constructor (props) {
     super(props)
@@ -73,6 +74,7 @@ export default class App extends React.Component {
         <BrowserRouter>
           <div>
             <NavBar />
+            <Loader />
             <Link to='/list' >Start browsing</Link>
             <div className='container'>
               <Route path='/list' component={List} />

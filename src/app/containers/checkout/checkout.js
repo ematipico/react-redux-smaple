@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectProductsInCart } from 'app/containers/cart/cartReducer'
@@ -30,7 +31,9 @@ class Checkout extends Component {
   }
 
   render () {
-    const { inititialValues: { products }, error } = this.props
+    const { inititialValues: {
+      products
+     }, error } = this.props
     if (_isEmpty(products)) {
       return (
         <div>

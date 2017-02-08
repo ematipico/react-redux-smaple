@@ -4,6 +4,9 @@ export const CHECKOUT_FULFIL = 'CHECKOUT_FULFIL'
 
 export const BUY_PRODUCTS = 'BUY_PRODUCTS'
 
+export const SUCCESSFUL_TRANSITION = 'SUCCESSFUL_TRANSITION'
+
+
 export function checkoutError (err) {
   return {
     type: CHECKOUT_ERROR,
@@ -28,5 +31,11 @@ export function buyProducts (formInformation) {
     payload: {
       ...formInformation
     }
+  }
+}
+
+export function successfulTransition () {
+  return {
+    type: SUCCESSFUL_TRANSITION
   }
 }
