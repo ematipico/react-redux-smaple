@@ -4,7 +4,7 @@
   "description": "A project to show how redux and react are used",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_PATH=%cd% cross-env NODE_ENV=test babel-tape-runner src/**/*.test.js | tap-difflet",
+    "test": "cross-env NODE_PATH=./src cross-env NODE_ENV=test ava '**/*.test.js'",
     "start": "cross-env NODE_ENV=development browser-sync start -c server.js",
     "lint": "standard --plugins flowtype | snazzy"
   },
@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",
+    "ava": "^0.18.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
@@ -53,10 +54,11 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-preset-stage-1": "^6.13.0",
+    "babel-register": "^6.23.0",
     "browser-sync": "^2.18.6",
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
-    "enzyme": "^2.7.0",
+    "enzyme": "^2.7.1",
     "eslint-plugin-flowtype": "^2.30.0",
     "flow-bin": "^0.38.0",
     "flow-typed": "^2.0.0",
@@ -85,6 +87,12 @@
     "globals": [
       "Generator",
       "fetch"
+    ]
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "babel-register"
     ]
   }
 }

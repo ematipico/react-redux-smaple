@@ -20,10 +20,6 @@ module.exports = {
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
-    // new webpack.DllReferencePlugin({
-    //   context: '.',
-    //   manifest: require('./vendors-manifest.json')
-    // }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({

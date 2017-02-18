@@ -21,7 +21,7 @@ class ThankYou extends Component {
 }
 
 ThankYou.defaultProps = {
-  message: 'Your are now finished your buying!'
+  message: 'Your are now finished your buying! Thanks a lot!'
 }
 
 export default ThankYou
