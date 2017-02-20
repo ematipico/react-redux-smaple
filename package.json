@@ -61,6 +61,7 @@
     "enzyme": "^2.7.1",
     "eslint-plugin-flowtype": "^2.30.0",
     "flow-bin": "^0.38.0",
+    "flow-cli": "0.0.0-pre",
     "flow-typed": "^2.0.0",
     "react-addons-perf": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
