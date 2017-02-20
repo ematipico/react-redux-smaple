@@ -1,7 +1,7 @@
 import test from 'ava'
 import * as notificationActions from './notificationActions'
 
-test('deliverMessage action', assert => {
+test('deliverMessage action returns the expected action', assert => {
   const inbox = {
     message: 'I am a dummy mesage',
     type: 'message'
@@ -14,10 +14,10 @@ test('deliverMessage action', assert => {
     payload: {...inbox}
   }
 
-  assert.deepEqual(action, expectedAction, 'return the expected action')
+  assert.deepEqual(action, expectedAction)
 })
 
-test('sendMessage action', assert => {
+test('sendMessage action returns the expected action', assert => {
   const message = 'I am a dummy mesage'
 
   const action = notificationActions.sendMessage(message)
@@ -30,10 +30,10 @@ test('sendMessage action', assert => {
     }
   }
 
-  assert.deepEqual(action, expectedAction, 'return the expected action')
+  assert.deepEqual(action, expectedAction)
 })
 
-test('removeAction action', assert => {
+test('removeAction action returns the expected action', assert => {
   const action = notificationActions.removeMessage()
 
   const expectedAction = {
@@ -41,5 +41,5 @@ test('removeAction action', assert => {
     payload: {}
   }
 
-  assert.deepEqual(action, expectedAction, 'return the expected action')
+  assert.deepEqual(action, expectedAction)
 })
