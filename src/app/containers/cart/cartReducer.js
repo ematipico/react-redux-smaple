@@ -8,7 +8,7 @@ export function selectProductsInCart (state: GenericState) {
   return state.cart
 }
 
-export function selectProductFromCart (state: GenericState, itemId: number) {
+export function selectProductFromCart (state: GenericState, itemId: *) {
   return state.cart[itemId]
 }
 

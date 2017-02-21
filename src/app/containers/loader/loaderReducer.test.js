@@ -1,6 +1,6 @@
 import test from 'ava'
 import { progress, stopProgress } from './loaderActions'
-import loaderReducer from './loaderReducer'
+import loaderReducer, { selectLoaderState } from './loaderReducer'
 
 test('loaderReducer handles the empty state', t => {
   const newState = loaderReducer(undefined, {})
@@ -25,4 +25,14 @@ test('loaderReducer does not show the loader', t => {
     showLoader: false
   }
   t.deepEqual(expectedState, newState)
+})
+
+test('selectLoaderState gives the slice of state wanted', t => {
+  const state = {
+    loader: {
+      showLoader: true
+    }
+  }
+  const selector = selectLoaderState(state)
+  t.is(state.loader.showLoader, selector)
 })
