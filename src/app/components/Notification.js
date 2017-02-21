@@ -12,7 +12,7 @@ type Props = {
   }
 }
 
-class Notification extends Component<void, Props, void> {
+export class Notification extends Component<void, Props, void> {
   render () {
     const { notification } = this.props
     if (notification) {

@@ -9,7 +9,7 @@ type Props = {
   numberOfItems?: number;
 }
 
-class NavBar extends Component<void, Props, void> {
+export class NavBar extends Component<void, Props, void> {
   render () {
     const { numberOfItems } = this.props
     return (
