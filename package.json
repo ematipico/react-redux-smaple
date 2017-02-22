@@ -6,6 +6,7 @@
   "scripts": {
     "test": "cross-env NODE_PATH=./src cross-env NODE_ENV=test ava --verbose",
     "start": "cross-env NODE_ENV=development browser-sync start -c server.js",
+    "deploy": "cross-env NODE_ENV=production webpack --config webpack.config.js && browser-sync start -c deploy.js",
     "lint": "standard --plugins flowtype | snazzy",
     "cover": "cross-env NODE_PATH=./src cross-env NODE_ENV=test nyc ava",
     "report": "nyc report --reporter=html"
@@ -16,7 +17,10 @@
   },
   "keywords": [
     "react",
-    "redux"
+    "redux",
+    "ava",
+    "nyc",
+    "reddit"
   ],
   "author": "Emanuele Stoppa",
   "license": "MIT",
@@ -52,7 +56,9 @@
     "babel-plugin-tcomb": "^0.3.24",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-plugin-transform-react-inline-elements": "^6.8.0",
+    "babel-plugin-transform-react-inline-elements": "^6.22.0",
+    "babel-plugin-transform-remove-console": "^6.8.0",
+    "babel-plugin-transform-remove-debugger": "^6.8.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
@@ -78,6 +84,7 @@
     "tap-difflet": "^0.7.0",
     "tape": "^4.6.3",
     "tcomb": "^3.2.16",
+    "uglifyjs-webpack-plugin": "^0.2.1",
     "webpack": "^2.2.0",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"

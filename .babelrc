@@ -29,9 +29,10 @@
       ],
       "plugins": [
         "transform-object-assign",
-        "syntax-flow",
-        "tcomb",
-        "transform-flow-strip-types"
+        "transform-flow-strip-types",
+        "transform-react-inline-elements",
+        "transform-remove-debugger",
+        "transform-remove-console"
       ]
     }
   }
