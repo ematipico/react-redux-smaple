@@ -26,6 +26,12 @@ cd react-redux-smaple
 npm install
 npm start
 ```
+If you wish to check the production version you can run the command
+
+```sh
+npm run deploy
+```
+Webpack will create the bundle and the css files inside the dist folder and a new instance of broser sync will be launched. I will need to open a browser and nativate to [http://localhost:3000](http://localhost:3000)
 
 This will kick off browser sync and it will run the application using Webpack. If you want run the test suite, execute the following command
 
