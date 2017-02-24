@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react'
 type Props = {
   kind: string;
   data: Object;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default class ProductCard extends Component<void, Props, void> {
@@ -53,8 +53,8 @@ export default class ProductCard extends Component<void, Props, void> {
         </div>
         <div className='column column-20 clearfix'>
           <span className='price animate float-left'>Price <mark>{price}</mark></span>
-          <button onClick={this.onClick} className='float-right'>Add to cart</button>
-          <button onClick={(evt) => this.onClickDetail(id, evt)} className='float-right'>Details</button>
+          <button onClick={this.onClick} className='float-right add-to-cart'>Add to cart</button>
+          <button onClick={(evt) => this.onClickDetail(id, evt)} className='float-right details'>Details</button>
         </div>
       </div>
     )
