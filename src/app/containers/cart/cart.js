@@ -8,7 +8,7 @@ type Props = {
   push: () => void;
 }
 
-class Cart extends Component<void, Props, void> {
+export class Cart extends Component<void, Props, void> {
   goToCheckout: (evt: Object) => void
 
   constructor (props) {
