@@ -108,7 +108,8 @@
     "babel": "inherit",
     "require": [
       "babel-register",
-      "babel-polyfill"
+      "babel-polyfill",
+      "./.setupTest.js"
     ]
   }
 }

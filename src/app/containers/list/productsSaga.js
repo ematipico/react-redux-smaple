@@ -4,6 +4,12 @@ import { applyPricesToData } from 'app/utils'
 
 const forever = true
 
+let mockedFetch
+
+export function mockFetch (func) {
+  mockedFetch = func
+}
+
 export function * watchGetProducts () {
   while (forever) { // eslint-disable-line
     const action = yield take(GET_PRODUCTS)
@@ -12,7 +18,8 @@ export function * watchGetProducts () {
 }
 
 export function * getProducts () {
-  const response = yield fetch('https://www.reddit.com/r/redditdev/.json')
+  const api = mockedFetch || fetch
+  const response = yield api('https://www.reddit.com/r/redditdev/.json')
   const data = yield response.json()
   const { children } = data.data
   applyPricesToData(children)

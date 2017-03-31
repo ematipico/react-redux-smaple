@@ -1,10 +1,8 @@
 import test from 'ava'
-import { watchGetProducts, getProducts } from './productsSaga'
+import { watchGetProducts, getProducts, mockFetch } from './productsSaga'
 import { GET_PRODUCTS, storeProducts } from 'app/containers/list/listActions'
 import { take, fork } from 'redux-saga/effects'
 import sinon from 'sinon'
-import jsdom from 'jsdom'
-
 
 test('watchGetProducts should listen to GET_PRODUCTS action', assert => {
   const generator = watchGetProducts()
@@ -36,13 +34,17 @@ test('watchGetMessage once fetched and forked should listen to the SEND_MESSAGE 
   assert.deepEqual(generator.next().value, take(GET_PRODUCTS))
 })
 
-test('getProducts fetch correctly the data', t => {
-  const window = jsdom.jsdom().defaultView
-  window.fetch = sinon.stub().returns(
-    Promise.resolve({
+test.only('getProducts fetch correctly the data', t => {
+  sinon.stub(global, 'fetch')
+  global.fetch.returns(Promise.resolve({
     status: 200,
-    json: () => Promise.resolve({})
+    json: () => {
+      return Promise.resolve({
+        ciao: 'ciao'
+      })
+    }
   }))
   const generator = getProducts()
-  generator.next()
+  generator.next().value
+  generator.next().value
 })
