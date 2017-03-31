@@ -8,6 +8,9 @@ Object.keys(defaultView).forEach(option => {
   }
 })
 
-global['fetch'] = () => {
-  
-}
+global.fetch = sinon.stub().returns(Promise.resolve({
+  status: 200,
+  json () {
+    return Promise.resolve()
+  }
+}))
