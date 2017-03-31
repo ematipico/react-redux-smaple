@@ -15,9 +15,11 @@ import Cart from 'app/containers/cart/cart'
 import Loader from 'app/containers/loader/loader'
 import ThankYou from 'app/containers/thank-you/thankYou'
 
+const hot: Object = module.hot
+
 if (process.env.NODE_ENV === 'development') {
-  if (module.hot) {
-    module.hot.accept()
+  if (hot) {
+    hot.accept()
   }
 }
 

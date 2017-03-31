@@ -12,16 +12,14 @@ export default class ProductCard extends Component<void, Props, void> {
   onClick: (() => void) => void;
   onClickDetail: (id: number, evt: Object) => void;
 
-  constructor (props: Props) {
-    super(props)
+  constructor (props: Props, context: any) {
+    super(props, context)
     this.onClick = this._onClick.bind(this)
     this.onClickDetail = this._onClickDetail.bind(this)
   }
 
-  static contextTypes () {
-    return {
-      context: PropTypes.object
-    }
+  static contextTypes = {
+    context: PropTypes.object
   }
 
   _onClick (evt: Object) {

@@ -100,7 +100,8 @@
     ],
     "globals": [
       "Generator",
-      "fetch"
+      "fetch",
+      "module"
     ]
   },
   "ava": {
