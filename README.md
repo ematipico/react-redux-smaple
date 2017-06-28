@@ -13,9 +13,9 @@ The sample is an attempt of a small eCommerce where you have a list of items tha
 4. Every container has a dedicated sass file;
 5. The testing suite that I use is [Ava](https://github.com/avajs/ava). Ava uses [Tape](https://github.com/substack/tape) under the hoods, which is my primary testing tool; react components are tested using [enzyme](https://github.com/airbnb/enzyme)
 6. Main sub libraries used
-  1. redux-saga
-  2. react-router-dom
-  3. redux-form
+   - redux-saga
+   - react-router-dom
+   - redux-form
 
 
 ## How to run it ##
