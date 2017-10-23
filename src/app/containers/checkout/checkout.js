@@ -8,7 +8,6 @@ import { checkoutError, fulfilCheckout, buyProducts } from './checkoutActions'
 import { selectCheckoutError } from './checkoutReducer'
 
 class Checkout extends Component {
-
   handleSubmit: (
     values: {
       name?: string;

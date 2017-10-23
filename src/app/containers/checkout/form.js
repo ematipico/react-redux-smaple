@@ -8,7 +8,6 @@ type Props = {
 }
 
 class Form extends Component<void, Props, void> {
-
   render () {
     const { onSubmit, handleSubmit } = this.props
     return (

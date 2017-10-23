@@ -8,10 +8,10 @@ type State = {
 export function selectProduct (state: State, id: number) {
   let theProduct = null
   if (state.products) {
-    state.products.forEach(product => {
+    state.products.some(product => {
       if (product.data.id === id) {
         theProduct = product
-        return
+        return true
       }
     })
   }
@@ -26,6 +26,5 @@ export default function products (state: State = {}, action: Action) {
     }
     default:
       return state
-
   }
 }

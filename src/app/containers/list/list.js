@@ -12,9 +12,7 @@ type Props = {
   dispatchGetProducts: () => void;
   dispatchAddToCart: () => void;
 }
-
 export class List extends Component<void, Props, void> {
-
   componentDidMount () {
     const { dispatchGetProducts } = this.props
     dispatchGetProducts()
