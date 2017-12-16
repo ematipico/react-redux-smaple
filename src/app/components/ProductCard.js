@@ -2,13 +2,13 @@
 import React, { Component } from 'react'
 
 type Props = {
-  kind: string;
+  kind: String;
   data: Object;
   onClick?: () => void;
 }
 export default class ProductCard extends Component<void, Props, void> {
   onClick: (() => void) => void;
-  onClickDetail: (id: number, evt: Object) => void;
+  onClickDetail: (id: String, evt: Object) => void;
 
   constructor (props: Props) {
     super(props)
@@ -30,7 +30,7 @@ export default class ProductCard extends Component<void, Props, void> {
 
   render () {
     const { kind, data: {
-      title, selftext, id, price
+      title, selftext, id = String, price
     } } = this.props
 
     return (

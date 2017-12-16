@@ -12,7 +12,7 @@
     "development": {
       "presets": [
         ["es2015", { "modules": false, "loose": true }],
-        "react", "stage-0", "stage-1",
+        "react", "stage-0", "stage-1"
       ],
       "plugins": [
         "transform-object-assign",
@@ -25,7 +25,7 @@
     "production": {
       "presets": [
         ["es2015", { "modules": false, "loose": true }],
-        "react", "stage-0", "stage-1",
+        "react", "stage-0", "stage-1"
       ],
       "plugins": [
         "transform-object-assign",
