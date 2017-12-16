@@ -2,6 +2,8 @@
 
 This is a sample to show how I personally use React and Redux inside a real word application.
 
+<img src="https://david-dm.org/ematipico/react-redux-sample.svg" />
+
 ## Description of the project ##
 
 The sample is an attempt of a small eCommerce where you have a list of items that you can browse. You can add them to the cart and make your purchase through a checkout form. There's nothing fancy behind it but this is the list of the main concepts used inside the sample:
